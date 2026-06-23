@@ -56,14 +56,13 @@ for (var i = 1; i <= 5; i++) {
     }
 }
 
-
 if (humanScore > computerScore) {
     alert("Human wins!");
+    alert("Human: " + humanScore + " | Computer: " + computerScore)
 } else if (humanScore === computerScore) {
     alert("The set ends in a tie!");
+    alert("Human: " + humanScore + " | Computer: " + computerScore)
 } else if (humanScore < computerScore) {
     alert("Computer wins!");
+    alert("Human: " + humanScore + " | Computer: " + computerScore)
 }
-
-alert("Human: " + humanScore)
-alert("Computer: " + computerScore)
