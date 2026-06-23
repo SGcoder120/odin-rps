@@ -47,7 +47,7 @@ var computerScore = 0;
 for (var i = 1; i <= 5; i++) {
     var humanSelection = getHumanChoice();
     var computerSelection = getComputerChoice();
-    alert(humanSelection + " " + computerSelection);
+    alert(humanSelection + " vs " + computerSelection);
     var result = playRound(humanSelection, computerSelection);
     if (result === 1) {
         humanScore += 1
