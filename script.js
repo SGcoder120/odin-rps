@@ -29,14 +29,14 @@ function playRound(humanChoice, computerChoice) {
         || humanChoice === "scissors" && computerChoice === "paper"
         || humanChoice === "paper" && computerChoice === "rock"
     ) {
-        alert("Human wins!")
+        alert("Human wins!");
         return 1;
     }
     else if (humanChoice === "scissors" && computerChoice === "rock"
         || humanChoice === "paper" && computerChoice === "scissors"
         || humanChoice === "rock" && computerChoice === "paper"
     ) {
-        alert("Computer wins!")
+        alert("Computer wins!");
         return -1;
     }
 }
@@ -50,9 +50,9 @@ for (var i = 1; i <= 5; i++) {
     alert(humanSelection + " vs " + computerSelection);
     var result = playRound(humanSelection, computerSelection);
     if (result === 1) {
-        humanScore += 1
+        humanScore += 1;
     } else if (result === -1) {
-        computerScore += 1
+        computerScore += 1;
     }
 }
 
@@ -64,4 +64,4 @@ if (humanScore > computerScore) {
     alert("Computer wins!");
 }
 
-alert("Human: " + humanScore + " | Computer: " + computerScore)
+alert("Human: " + humanScore + " | Computer: " + computerScore);
