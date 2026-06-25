@@ -1,0 +1,10 @@
+.battle-log {
+    height: 480px;
+    width: 320px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}

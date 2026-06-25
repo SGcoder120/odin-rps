@@ -22,21 +22,18 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
     // your code here!
     if (humanChoice === computerChoice) {
-        alert("It's a tie!");
         return 0;
     }
     else if (humanChoice === "rock" && computerChoice === "scissors"
         || humanChoice === "scissors" && computerChoice === "paper"
         || humanChoice === "paper" && computerChoice === "rock"
     ) {
-        alert("Human wins!");
         return 1;
     }
     else if (humanChoice === "scissors" && computerChoice === "rock"
         || humanChoice === "paper" && computerChoice === "scissors"
         || humanChoice === "rock" && computerChoice === "paper"
     ) {
-        alert("Computer wins!");
         return -1;
     }
 }
@@ -44,24 +41,108 @@ function playRound(humanChoice, computerChoice) {
 var humanScore = 0;
 var computerScore = 0;
 
-for (var i = 1; i <= 5; i++) {
-    var humanSelection = getHumanChoice();
-    var computerSelection = getComputerChoice();
-    alert(humanSelection + " vs " + computerSelection);
-    var result = playRound(humanSelection, computerSelection);
+var rock_btn = document.querySelector(".rock-button");
+var paper_btn = document.querySelector(".paper-button");
+var scissors_btn = document.querySelector(".scissors-button");
+var battle_log = document.querySelector(".battle-log");
+
+rock_btn.addEventListener("click", (e) => {
+    var result = playRound("rock", getComputerChoice());
     if (result === 1) {
+        var p_elem = document.createElement("p");
+        p_elem.textContent = "Human Wins! Rock beats scissors!";
         humanScore += 1;
     } else if (result === -1) {
+        var p_elem = document.createElement("p");
+        p_elem.textContent = "Computer Wins! Paper beats rock!";
         computerScore += 1;
+    } else if (result === 0) {
+        var p_elem = document.createElement("p");
+        p_elem.textContent = "It's a tie! Rock is rock!";
     }
-}
+    p_elem.textContent += ` Human Score: ${humanScore} | Computer Score ${computerScore}`;
+    battle_log.appendChild(p_elem);
 
-if (humanScore > computerScore) {
-    alert("Human wins!");
-} else if (humanScore === computerScore) {
-    alert("The set ends in a tie!");
-} else if (humanScore < computerScore) {
-    alert("Computer wins!");
-}
+    if (humanScore === 5) {
+        var p_result = document.createElement("p");
+        p_result.textContent = "Human wins the set!";
+        battle_log.appendChild(p_result);
+        document.querySelector(".rock-button").disabled = true;
+        document.querySelector(".paper-button").disabled = true;
+        document.querySelector(".scissors-button").disabled = true;
+    } else if (computerScore === 5) {
+        var p_result = document.createElement("p");
+        p_result.textContent = "Computer wins the set!";
+        battle_log.appendChild(p_result);
+        document.querySelector(".rock-button").disabled = true;
+        document.querySelector(".paper-button").disabled = true;
+        document.querySelector(".scissors-button").disabled = true;
+    }
+});
+paper_btn.addEventListener("click", (e) => {
+    var result = playRound("paper", getComputerChoice());
+    if (result === 1) {
+        var p_elem = document.createElement("p");
+        p_elem.textContent = "Human Wins! Paper beats rock!";
+        humanScore += 1;
+    } else if (result === -1) {
+        var p_elem = document.createElement("p");
+        p_elem.textContent = "Computer Wins! Scissors beats paper!";
+        computerScore += 1;
+    } else if (result === 0) {
+        var p_elem = document.createElement("p");
+        p_elem.textContent = "It's a tie! Paper is paper!";
+    }
+    p_elem.textContent += ` Human Score: ${humanScore} | Computer Score ${computerScore}`;
+    battle_log.appendChild(p_elem);
 
-alert("Human: " + humanScore + " | Computer: " + computerScore);
+    if (humanScore === 5) {
+        var p_result = document.createElement("p");
+        p_result.textContent = "Human wins the set!";
+        battle_log.appendChild(p_result);
+        document.querySelector(".rock-button").disabled = true;
+        document.querySelector(".paper-button").disabled = true;
+        document.querySelector(".scissors-button").disabled = true;
+    } else if (computerScore === 5) {
+        var p_result = document.createElement("p");
+        p_result.textContent = "Computer wins the set!";
+        battle_log.appendChild(p_result);
+        document.querySelector(".rock-button").disabled = true;
+        document.querySelector(".paper-button").disabled = true;
+        document.querySelector(".scissors-button").disabled = true;
+    }
+});
+scissors_btn.addEventListener("click", (e) => {
+    var result = playRound("scissors", getComputerChoice());
+    if (result === 1) {
+        var p_elem = document.createElement("p");
+        p_elem.textContent = "Human Wins! Scissors beats paper!";
+        humanScore += 1;
+    } else if (result === -1) {
+        var p_elem = document.createElement("p");
+        p_elem.textContent = "Computer Wins! Rock beats scissors!";
+        computerScore += 1;
+    } else if (result === 0) {
+        var p_elem = document.createElement("p");
+        p_elem.textContent = "It's a tie! Scissors is scissors!";
+    }
+    p_elem.textContent += ` Human Score: ${humanScore} | Computer Score ${computerScore}`;
+    battle_log.appendChild(p_elem);
+
+    if (humanScore === 5) {
+        var p_result = document.createElement("p");
+        p_result.textContent = "Human wins the set!";
+        battle_log.appendChild(p_result);
+        document.querySelector(".rock-button").disabled = true;
+        document.querySelector(".paper-button").disabled = true;
+        document.querySelector(".scissors-button").disabled = true;
+    } else if (computerScore === 5) {
+        var p_result = document.createElement("p");
+        p_result.textContent = "Computer wins the set!";
+        battle_log.appendChild(p_result);
+        document.querySelector(".rock-button").disabled = true;
+        document.querySelector(".paper-button").disabled = true;
+        document.querySelector(".scissors-button").disabled = true;
+    }
+});
+
