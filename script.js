@@ -145,4 +145,3 @@ scissors_btn.addEventListener("click", (e) => {
         document.querySelector(".scissors-button").disabled = true;
     }
 });
-
